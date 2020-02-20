@@ -7,7 +7,6 @@ class Names:
     def __init__(self, name, surname):
         self.name = name
         self.surname = surname
-        self.fullname = None
         Names.counter += 1  # it adds first then print
         print("Object is created:", Names.counter)
 
@@ -20,7 +19,6 @@ class Names:
 
     @classmethod
     def class_var(cls):  # this function is reference to the class
-        # this function is reference to the class
         # can be accessed by 'Names.class_var() and
         # 'Names().class_var() both.
         return cls.counter
@@ -28,12 +26,16 @@ class Names:
 
 name_obj_1 = Names('Souvik', 'Ghosh')  # it will take arguments in __init_
 # now it will run what is defined in __init__()
+print(dir(Names))
 name_obj_2 = Names('Guido', 'Van')  # it will run __init__() again
 
 print(name_obj_1)  # it will return all the dunder method used in class
 # for this object 'name_obj_1
+print(Names.printing_name(name_obj_1))  # accessing with class
 
 print(name_obj_2)  # returns all dunder for this object 'name_obj_2'
+
+print (Names.printing_name(name_obj_2))
 
 print(name_obj_1.printing_name())  # we are accessing function defined
 # inside the class
