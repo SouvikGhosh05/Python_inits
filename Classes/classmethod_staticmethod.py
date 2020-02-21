@@ -1,3 +1,15 @@
+"""
+Copyright (c) 2020, Souvik Ghosh.
+
+Distributed under the terms of the MIT License.
+
+The full license is in the file LICENSE, distributed with this software.
+
+Created on Feb 21, 2020
+
+@author
+"""
+
 class User:
     a_pay = 15000  # class variables.
     b_pay = 21000
