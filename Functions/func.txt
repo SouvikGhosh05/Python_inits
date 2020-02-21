@@ -1,1 +1,0 @@
-These are some ideas of how different types of function syntax can be created using Python. 
