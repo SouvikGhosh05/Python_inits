@@ -1,3 +1,15 @@
+"""
+Copyright (c) 2020, Souvik Ghosh.
+
+Distributed under the terms of the MIT License.
+
+The full license is in the file LICENSE, distributed with this software.
+
+Created on Feb 20, 2020
+
+@author
+"""
+
 def func_1(name1,message,name2):   # defined function
     print("printing the message with" ,name1,",",name2,",and",message)
 func_1("John",message="hello",name2="David")   #calling function
