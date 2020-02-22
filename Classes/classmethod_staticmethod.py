@@ -64,7 +64,6 @@ print(u1)  # after modifying it prints dunder...
 print(User.modvar_class(16000))
 u2 = u1.calling_class(1000)  # '500' is overwritten by '1000' here.
 print(u2.value)  # overwritten value of 'self.value'.
-=======
 print(u2.value)
 u3 = User.calling_class(2000)  # it passes its argument and newly sets 'self.value'.
 print(u3.value)  # then, it prints the updated 'self.value'.
