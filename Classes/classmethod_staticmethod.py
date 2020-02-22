@@ -1,5 +1,17 @@
+"""
+Copyright (c) 2020, Souvik Ghosh.
+
+Distributed under the terms of the MIT License.
+
+The full license is in the file LICENSE, distributed with this software.
+
+Created on Feb 21, 2020
+
+@author
+"""
+
 class User:
-    a_pay = 15000
+    a_pay = 15000   # class variables.
     b_pay = 21000
 
     def __init__(self, value):
@@ -9,11 +21,18 @@ class User:
         self.value = value
 
     def modifying(self, *args, **kwargs):
+        self.list = list(args)  # updating 'self.list'.
         self.list = list(args)
 
         for i, j in kwargs.items():
             print(i, j, end='\n')
+            
+        self.dict = kwargs  # updating 'self.dict'.
+        return self.list, self.dict
 
+    def __str__(self):  # so 'str(self)' can now be applied.
+        return f'The list is: {self.list} and the dictionary is: {self.dict}.'
+        # returns the updated 'self.list' and 'self.dict'.
         self.dict = kwargs
         return self.list, self.dict
 
@@ -44,9 +63,20 @@ print(u1.modifying(10, 40, my_name='Souvik', language='Python'))
 print(u1)  # after modifying it prints dunder...
 print(User.modvar_class(16000))
 u2 = u1.calling_class(1000)  # '500' is overwritten by '1000' here.
+print(u2.value)  # overwritten value of 'self.value'.
 print(u2.value)
 u3 = User.calling_class(2000)  # it passes its argument and newly sets 'self.value'.
 print(u3.value)  # then, it prints the updated 'self.value'.
 print(User.pass_func(10, 20, 30))
 ## can also be written as....
+print(u2.pass_func(40, 50, 60))
+print(str(u1))  # it works as __str__() defined in the class
+print(u1.__str__())  # same condition as above..
+## otherwise, 'it raises AttributeError' if '__str__()' was not defined.
+print(User.__str__(u1))  # also applicable.
+print(u2.modifying(20, 30, name='Guido Van Rossum', role='Python Creator'))
+print(u2)
+print(str(u2))
+print(u2.__str__())
+print(User.__str__(u2))
 print(u2.pass_func(40,50,60))
