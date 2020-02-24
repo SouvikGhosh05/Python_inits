@@ -1,3 +1,15 @@
+"""
+Copyright (c) 2020, Souvik Ghosh.
+
+Distributed under the terms of the MIT License.
+
+The full license is in the file LICENSE, distributed with this software.
+
+Created on Feb 20, 2020
+
+@author
+"""
+
 class Dunders:
     def __init__(self,*args):
         self.amount=1000
