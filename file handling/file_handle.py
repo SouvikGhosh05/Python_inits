@@ -1,3 +1,15 @@
+"""
+Copyright (c) 2020, Souvik Ghosh.
+
+Distributed under the terms of the MIT License.
+
+The full license is in the file LICENSE, distributed with this software.
+
+Created on Feb 19, 2020
+
+@author
+"""
+
 
 with open('file.txt','r') as fileptr:
 #fileptr=open('file.txt','r')
