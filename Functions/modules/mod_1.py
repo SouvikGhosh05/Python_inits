@@ -9,6 +9,6 @@ if __name__ == "__main__":    ## only runs in this environment.
     while i <= (number_of_lists - 1):
         updated_list_1 = func_list()  ## returns a list with the input entries.
         print(updated_list_1)        ## prints the list.
-        for j in updated_list_1:     ## increments over the items of the list.
+        for j in updated_list_1:     ## iterates over the items of the list.
             print(j, end=' ')        ## prints individual items of the list.
         i += 1
