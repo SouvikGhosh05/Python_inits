@@ -1,0 +1,9 @@
+- name: Labeler
+  uses: actions/labeler@v3
+  with:
+    # The GITHUB_TOKEN secret
+    repo-token: # optional
+    # The path for the label configurations
+    configuration-path: # optional, default is .github/labeler.yml
+    # Whether or not to remove labels when matching files are reverted
+    sync-labels: # optional
