@@ -1,36 +1,42 @@
-import timeit
-class Static:
+class Static(): 
     counter = 0
+
+    def __init__(self):
+        self.cls_counter = Static.counter
     
-    @staticmethod
-    def myfunc():    
+    def __repr__(self):
+        return f"Static class {self.__class__.__name__} with counter {Static.counter}"
+    
+    @staticmethod      
+    def myfunc():
         Static.counter += 1
         return Static.counter
-    
-    def __delattr__(self, name):
-        del self.name
-        
 
-if __name__ == '__main__':
-    
+
+if __name__ == "__main__":
+
     def main1():
-        count = Static()                #with instance of class and slower
-        count.myfunc()
-        count.myfunc()
-        #count.__delattr__('counter')
-        #delattr(count, 'counter')
-        
-    t1=timeit.timeit(main1, number=100000)
-    print(timeit.default_timer()-t1)
-    
-    
-    def main2():
+        static_instance = Static()  # with instance of class and slower
+        print(f"First call from first : {static_instance.myfunc()}")
+        print(f"Second call from first : {static_instance.myfunc()}")
+        print(f"Third call from first : {static_instance.myfunc()}")
+        return static_instance
 
-        count1 = Static.myfunc()            #with class name and faster
-        count2 = Static.myfunc()
-        
-    #t2=timeit.timeit(main2, number=100000)
-    #print(timeit.default_timer()-t2)
-    #delattr(Static(), 'counter')
-    #main1()
+    def main2():
+        static_instance = Static()  
+        print(f"First call from second : {Static.myfunc()}")
+        print(f"Second call from second : {Static.myfunc()}")
+        print(f"Third call from second : {Static.myfunc()}")
+        return static_instance
+
+    instance1 = main1()       
+    print(instance1.__dict__)       # all attributes of 'self' are the part of self.__dict__
+    instance2 = main2()             # this will initialize with previously incremented value of 'cls_counter'
+    print(instance1)
+    print(instance2)
     
+    instance1.extra_purple = "purple"
+    print(instance1.__dict__)      # You will see 'cls_counter' is still 0, to set that into dict, we need to use @property
+    print(instance2.__dict__)
+    del instance1.cls_counter
+    print(instance1.__dict__)
